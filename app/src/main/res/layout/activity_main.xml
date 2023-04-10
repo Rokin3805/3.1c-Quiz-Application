@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!-- using constraint layout to match wireframe design-->
+
+    <!-- heading is bound by constraints Top_toTopof parent, Bottom_toTopOf @+id/name to put it above TextView field below-->
+    <!-- horizontal bias set to 0.5 puts this in the center (essentially the percentage of the screen, where 0.0 would be left edge and 1.0 would be right edge -->
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIT305 Quiz App"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        />
+
+
+    <!-- TextView uses marginStart field to create spacing from left, EditText uses marginEnd for right spacing -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Enter Your Name:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <!-- contraint Start_toEndOf @+id/name positions the start of this element at the end of the stated element-->
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/name"
+        app:layout_constraintTop_toTopOf="@+id/name"
+        />
+
+    <!-- Similar constraints to above elements, most notably in this case, Top_toBottomOf @+id/name puts this below the TextView field matching that ID (marginTop spaces it)-->
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:onClick="startQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/name_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="16dp"
+        />
+    <!-- the below colour has been removed from the element and commented out as it does not work, even though its hex value was added to colors.xml -->
+    <!-- hex value for grey obtained from: https://encycolorpedia.com/a4c639 -->
+    <!-- feedback as to why this element is not coloured appropriately by this would be greatly appreciated. Thank you-->
+    <!--android:background="@color/grey" -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
